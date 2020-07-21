@@ -1,0 +1,20 @@
+.bubble {
+    border-radius: 10%;
+    position: absolute;
+    color:white;
+    font-weight:bold;
+    font-size:.4em;
+    text-align:center;
+    padding-top:0.3em;
+    font-family:verdana;
+    box-shadow: .5px .5px 1px gray
+}
+
+.top, .bottom {
+    height:50%;
+}
+
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
