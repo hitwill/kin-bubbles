@@ -10,79 +10,22 @@ function createBubble(amount, app, id, position) {
     } else {
         amount = numberFormat.format(amount) + '<BR>KIN';
     }
+    let color = getColor(app);
+    app = '<BR><span class="app">' + appCodeToName(app) +'</span>';
     let bubble = $('<div/>', {
         class: 'bubble',
         id: id,
         css: {
-            'background-color': getColor(app),
+            'background-color': color,
             height: getSize(),
             width: getSize(),
             bottom: position + 'vh',
         },
-    }).html(amount).prependTo('#bubbles');
+    }).html(amount + app).prependTo('#bubbles');
     moveBubble(id);
 }
 
-function getColor(app) {
-    let col = stringToColour(app);
-    let rgb = hexToRgb(darkenColr(col));
-    if (!rgb) rgb = { r: 0, g: 0, b: 0 };
-    return ' rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
-}
 
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
-}
-
-function stringToColour(str) {
-    var hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var colour = '#';
-    for (let i = 0; i < 3; i++) {
-        var value = (hash >> (i * 8)) & 0xFF;
-        colour += ('00' + value.toString(16)).substr(-2);
-    }
-    return colour;
-}
-
-function darkenColr(col) {
-    var usePound = false;
-    var amt = -50;
-    if (col[0] === "#") {
-        col = col.slice(1);
-        usePound = true;
-    }
-
-    var num = parseInt(col, 16);
-    var r = (num >> 16) + amt;
-
-    if (r > 255) r = 255;
-    else if (r < 0) r = 0;
-
-    var b = ((num >> 8) & 0x00FF) + amt;
-
-    if (b > 255) b = 255;
-    else if (b < 0) b = 0;
-
-    var g = (num & 0x0000FF) + amt;
-
-    if (g > 255) g = 255;
-    else if (g < 0) g = 0;
-
-    return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
-
-}
-
-function getSize() {
-    return '3vw';
-}
 
 function popBubble(id) {
     document.getElementById(id).remove();
@@ -91,18 +34,24 @@ function popBubble(id) {
 function moveBubble(id) {
     if(randomNumber(1,20) < 2) {
         duration = 7000;
-        scale = 4;
+        scale2 = 4;
+        scale1 = 2;
     }else{
         duration = randomNumber(1000,3000);
-        scale = randomNumber(2,4);
+        scale1 = randomNumber(1,randomNumber(1,2));
+        scale2 = randomNumber(1,randomNumber(1,3));
+    }
+
+    if(scale2 == 4) {
+        $('#' + id).find('.app').show();//boast
     }
     anime({
         targets: '#' + id,
         duration:  duration,
         easing: 'cubicBezier(.5, .05, .1, .3)',
         keyframes: [
-            { translateY: -randomNumber(60,80), translateX: randomNumber(10,30) + 'vw', scale: 2 },
-            { translateY: -randomNumber(20,40), translateX: randomNumber(30,50)+'vw', scale: scale },
+            { translateY: -randomNumber(60,80), translateX: randomNumber(10,30) + 'vw', scale: scale1 },
+            { translateY: -randomNumber(20,40), translateX: randomNumber(30,50)+'vw', scale: scale2 },
             {
                 translateY: 40,
                 translateX: '100vw',
@@ -126,7 +75,7 @@ function pushBubble(bubble) {
 }
 
 function pullBubbles(){
-    let delay = 100;
+    let delay = 200;
     let speed = 0;
     let app = null;
     let amount = null;
@@ -164,4 +113,4 @@ function totalBubblesInQueue(bubbles) {
 
 setInterval(function(){
     pullBubbles();
-}, 500);
+}, 1000);

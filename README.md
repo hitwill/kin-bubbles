@@ -9,3 +9,6 @@ A running version of this code can be found on: [kin-bubbles.herokuapp.com](http
 
 ## Installation
 Clone or download to your desktop, and run home.html on your browser
+
+
+Credit to GoodKats for the [waves animation](https://codepen.io/goodkatz/pen/LYPGxQz)
