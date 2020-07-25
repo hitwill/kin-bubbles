@@ -25,7 +25,9 @@ function createBubble(amount, app, id, position) {
     moveBubble(id);
 }
 
-
+function getSize() {
+    return '3vmax';
+}
 
 function popBubble(id) {
     document.getElementById(id).remove();
@@ -41,7 +43,7 @@ function moveBubble(id) {
         scale1 = randomNumber(1,randomNumber(1,2));
         scale2 = randomNumber(1,randomNumber(1,3));
     }
-
+    
     if(scale2 == 4) {
         $('#' + id).find('.app').show();//boast
     }
@@ -50,11 +52,14 @@ function moveBubble(id) {
         duration:  duration,
         easing: 'cubicBezier(.5, .05, .1, .3)',
         keyframes: [
-            { translateY: -randomNumber(60,80), translateX: randomNumber(10,30) + 'vw', scale: scale1 },
-            { translateY: -randomNumber(20,40), translateX: randomNumber(30,50)+'vw', scale: scale2 },
+            { translateY: -randomNumber(60,80), translateX: randomNumber(10,30) + 'vw', scale: scale1, rotateY: randomNumber(0,20) + 'deg', rotateX: randomNumber(0,20) + 'deg', rotateZ: - randomNumber(0,randomNumber(0,4)) + 'deg' },
+            { translateY: -randomNumber(20,40), translateX: randomNumber(30,50)+'vw', scale: scale2,  rotateY: '0deg',  rotateX: '0deg', rotateZ: '0deg' },
             {
-                translateY: 40,
-                translateX: '100vw',
+                rotateZ:  randomNumber(0,randomNumber(0,20)) + 'deg',
+                rotateX: -randomNumber(0,20) + 'deg',
+                rotateY: -randomNumber(50,90)+'deg',
+                translateY: randomNumber(30,50),
+                translateX: '120vw',
                 scale: 0.5,
                 easing: function (el, i, total) {
                     return function (t) {

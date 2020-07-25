@@ -77,6 +77,28 @@ body {
 
 .card-stats {
   border-radius: 4%;
+  transition: background-color 5s;
+}
+
+#stats-table td {
+    position: relative;
+}
+
+#stats-table {
+    margin-left: 2px;
+}
+
+.app-kin::after, .app-accounts::after, .app-spends::after{
+    content: "";
+    opacity:0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+    transition: width 2s;
 }
 
 @keyframes move-forever {

@@ -1,4 +1,4 @@
-let updateFrequency = 7000;
+let updateFrequency = 20000;
 let updateFrequencyEcosystem = 1000;
 let appStatPos = 0;
 
@@ -58,10 +58,6 @@ function darkenColr(col) {
     return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
 }
 
-function getSize() {
-    return '3vw';
-}
-
 function appCodeToName(app) {
     var appArray = [];
     appArray['kit'] = 'Kinit';
@@ -106,6 +102,11 @@ function appCodeToName(app) {
     }
 }
 
+setTimeout(function(){
+    console.log('display');
+    displayStats();
+}, 10000);
+
 setInterval(function(){
     displayStats();
 }, updateFrequency);
@@ -139,7 +140,7 @@ function displayStats() {
     
     if(spends) {
         $('#stats-table').show();
-        $('.card-stats').css('background', col);
+        $('.card-stats').css('background-color', col);
         app = appCodeToName(app);
         $('.app-name').html(app);
         $('#app-kin').html(kin);
@@ -147,7 +148,19 @@ function displayStats() {
         $('#app-spends').html(spends);
     }
 
+    app = 'Ecosystem';
+    $('#progress-modifier').html(
+        '.app-kin::after {width:'+Math.max(1,Math.round(100*toNumber(kin)/toNumber(statsHolder.kin[app]))*4)+'%}' +
+        '.app-accounts::after {width:'+Math.max(1,Math.round(100*toNumber(accounts)/toNumber(statsHolder.accounts[app]))*4)+'%}' +
+        '.app-spends::after {width:'+Math.max(1,Math.round(100*toNumber(spends)/toNumber(statsHolder.spends[app]))*4)+'%}'
+    );
+        
     appStatPos++;// move to next app
+}
+
+function toNumber(string) {
+    string = string + '';//typecase
+    return parseFloat(string.replace(',',''));
 }
 
 function displayStatsEcosystem() {
