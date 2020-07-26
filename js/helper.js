@@ -138,15 +138,17 @@ function displayStats() {
     if(statsHolder.spends[app]) spends = dirtyPrecision(numberFormat.format(statsHolder.spends[app]));
     if(statsHolder.accounts[app]) accounts = dirtyPrecision(numberFormat.format(statsHolder.accounts[app]));
     
-    if(spends) {
-        $('#stats-table').show();
-        $('.card-stats').css('background-color', col);
-        app = appCodeToName(app);
-        $('.app-name').html(app);
-        $('#app-kin').html(kin);
-        $('#app-accounts').html(accounts);
-        $('#app-spends').html(spends);
-    }
+    appStatPos++;// move to next app
+
+    if(!spends) return;
+    
+    $('#stats-table').show();
+    $('.card-stats').css('background-color', col);
+    app = appCodeToName(app);
+    $('.app-name').html(app);
+    $('#app-kin').html(kin);
+    $('#app-accounts').html(accounts);
+    $('#app-spends').html(spends);
 
     app = 'Ecosystem';
     $('#progress-modifier').html(
@@ -155,7 +157,6 @@ function displayStats() {
         '.app-spends::after {width:'+Math.max(1,Math.round(100*toNumber(spends)/toNumber(statsHolder.spends[app]))*4)+'%}'
     );
         
-    appStatPos++;// move to next app
 }
 
 function toNumber(string) {
