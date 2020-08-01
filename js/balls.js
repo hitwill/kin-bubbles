@@ -5,15 +5,17 @@ let minTimeOnScreen = 3000;
 
 //https://animejs.com/documentation/#cssSelector
 function createBubble(amount, app, id, position) {
+    let className = 'bubble';
     if(amount == null) {
-        amount = 'NEW<BR>USER'; //new account
+        className += ' newaccount';
+        amount = '<span class="vert-center">NEW<BR>USER</span>'; //new account
     } else {
         amount = numberFormat.format(amount) + '<BR>KIN';
     }
     let color = getColor(app);
     app = '<BR><span class="app">' + appCodeToName(app) +'</span>';
     let bubble = $('<div/>', {
-        class: 'bubble',
+        class: className,
         id: id,
         css: {
             'background-color': color,

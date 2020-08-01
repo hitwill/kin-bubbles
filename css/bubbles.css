@@ -9,6 +9,15 @@
     font-family:verdana;
 }
 
+.newaccount {
+    border-radius: 100% !important;
+}
+
+.vert-center {
+    margin-top:10%;
+    display:inline-block;
+}
+
 .top, .bottom {
     height:50%;
 }

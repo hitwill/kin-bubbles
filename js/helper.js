@@ -103,7 +103,6 @@ function appCodeToName(app) {
 }
 
 setTimeout(function(){
-    console.log('display');
     displayStats();
 }, 10000);
 
@@ -141,7 +140,7 @@ function displayStats() {
     appStatPos++;// move to next app
 
     if(!spends) return;
-    
+
     $('#stats-table').show();
     $('.card-stats').css('background-color', col);
     app = appCodeToName(app);
