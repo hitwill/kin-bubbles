@@ -3,7 +3,7 @@
     position: absolute;
     color:white;
     font-weight:bold;
-    font-size:30%;
+    font-size:35%;
     text-align:center;
     padding-top:0.3em;
     font-family:verdana;
@@ -29,4 +29,11 @@ html, body{
 
 .app {
     display: none;
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .bubble {
+        font-size:20%;
+    }
 }

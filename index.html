@@ -15,24 +15,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="stylesheet" type="text/css" href="css/bubbles.css">
-    <link rel="stylesheet" type="text/css" href="css/waves.css">
+    <link rel="stylesheet" type="text/css" href="css/bubbles.css?v=ag1">
+    <link rel="stylesheet" type="text/css" href="css/waves.css?v=ag1">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js?v=ag1"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/kin-sdk.min.js"></script>
-    <script type="text/javascript" src="js/kin-blockchain.js"></script>
+    <script type="text/javascript" src="js/kin-sdk.min.js?v=ag1"></script>
+    <script type="text/javascript" src="js/kin-blockchain.js?v=ag1"></script>
     <title>Kin Transaction Viewer</title>
     <meta property="og:title" content="Kin Transaction Visualizer" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kin-bubbles.herokuapp.com/" />
-    <meta property="og:image" content="https://i.imgur.com/XdCpItI.png" />
+    <meta property="og:image" content="https://i.imgur.com/Vi37RlM.png" />
     <meta property="og:description" content="Transaction visualizer for the Kin blockchain" />
 </head>
 
@@ -42,7 +42,8 @@
         <!--Content before waves-->
         <div class="inner-header flex">
             <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzJweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgNzIgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU3ICg4MzA3NykgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+TE9HTy9TTUFMTC9XaGl0ZSBDb3B5PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkxPR08vU01BTEwvV2hpdGUiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iS2luX2xvZ29fUkdCLTA0LUNvcHkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTE1Ljc4MTMzMzMsMTEuODY5MzMzMyBMMTUuNzgxMzMzMywxMi4wMTYgQzE1Ljc4NzE5OTMsMTQuMTA1OTI0MSAxNy40ODA3MzksMTUuNzk4MjcyIDE5LjU3MDY2NjcsMTUuODAyNjY2NyBMMjEuNjUwNjY2NywxNS44MDI2NjY3IEMyMi41MTIyMzA5LDE1LjgwMjY2NjcgMjMuMjEwNjY2NywxNi41MDExMDI1IDIzLjIxMDY2NjcsMTcuMzYyNjY2NyBMMjMuMjEwNjY2NywyMy43NjI2NjY3IEwxNi43MTQ2NjY3LDIzLjc2MjY2NjcgQzE1Ljg1MzEwMjUsMjMuNzYyNjY2NyAxNS4xNTQ2NjY3LDIzLjA2NDIzMDkgMTUuMTU0NjY2NywyMi4yMDI2NjY3IEwxNS4xNTQ2NjY3LDE5LjU3ODY2NjcgQzE1LjE0ODgxNDcsMTcuNDg5MzQ0NCAxMy40NTczMTc3LDE1Ljc5NjY1NjEgMTEuMzY4LDE1Ljc4OTMzMzMgTDExLjIyMTMzMzMsMTUuNzg5MzMzMyBDOS4xMzIwMTU2OCwxNS43OTY2NTYxIDcuNDQwNTE4NjIsMTcuNDg5MzQ0NCA3LjQzNDY2NjY3LDE5LjU3ODY2NjcgTDcuNDM0NjY2NjcsMjMuNzYyNjY2NyBMMC4xNzMzMzMzMzMsMjMuNzYyNjY2NyBMMC4xNzMzMzMzMzMsMC4xMzMzMzMzMzMgTDcuNDM0NjY2NjcsMC4xMzMzMzMzMzMgTDcuNDM0NjY2NjcsNC4zNjggQzcuNDM5MDYxMzgsNi40NTc5Mjc2OSA5LjEzMTQwOTI1LDguMTUxNDY3MzYgMTEuMjIxMzMzMyw4LjE1NzMzMzMzIEwxMS4zNjgsOC4xNTczMzMzMyBDMTMuNDU3OTI0MSw4LjE1MTQ2NzM2IDE1LjE1MDI3Miw2LjQ1NzkyNzY5IDE1LjE1NDY2NjcsNC4zNjggTDE1LjE1NDY2NjcsMS43MDEzMzMzMyBDMTUuMTU0NjY2NywxLjI4NzU5NTYxIDE1LjMxOTAyMzMsMC44OTA4MDM1MDUgMTUuNjExNTgwMSwwLjU5ODI0Njc1NSBDMTUuOTA0MTM2OCwwLjMwNTY5MDAwNCAxNi4zMDA5Mjg5LDAuMTQxMzMzMzMzIDE2LjcxNDY2NjcsMC4xNDEzMzMzMzMgTDIzLjIsMC4xNDEzMzMzMzMgTDIzLjIsNi41NDEzMzMzMyBDMjMuMiw3LjQwMjg5NzU0IDIyLjUwMTU2NDIsOC4xMDEzMzMzMyAyMS42NCw4LjEwMTMzMzMzIEwxOS41Niw4LjEwMTMzMzMzIEMxNy40ODE0NzQ3LDguMTExNDg5MSAxNS43OTczNjQ3LDkuNzkwODQ1MDggMTUuNzgxMzMzMywxMS44NjkzMzMzIEwxNS43ODEzMzMzLDExLjg2OTMzMzMgWiIgaWQ9IlBhdGgiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHBvaW50cz0iMzkuMTI4IDAuMTMzMzMzMzMzIDM5LjEyOCAyMy43NTIgMzIuMjY2NjY2NyAyMy43NTIgMzIuMjY2NjY2NyAwLjEzMzMzMzMzMyI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTcxLjI2NCwwLjA1NTk5NTExNCBMNzEuMjY0LDIzLjc1MjAwMDEgTDY0Ljk4NCwyMy43NTIwMDAxIEM2NC40NzM0MDcsMjMuNzUyMDAwMSA2My45OTUxNDI5LDIzLjUwMjEyIDYzLjcwNCwyMy4wODI2NjY3IEw1NC44MzczMzMzLDEwLjM1MiBMNTQuODM3MzMzMywyMy43NTIwMDAxIEw0OC4xNzA2NjY3LDIzLjc1MjAwMDEgTDQ4LjE3MDY2NjcsMC4wNTU5OTUxMTQgTDU0LjQ1NiwwLjA1NTk5NTExNCBDNTQuOTY2MjExOCwwLjA1NDcyMjkwNDcgNTUuNDQ0NTc2MSwwLjMwMzg3MDk2MyA1NS43MzYsMC43MjI2NjY2NjcgTDY0LjYsMTMuNDUzMzMzMyBMNjQuNiwwLjA1NTk5NTExNCBMNzEuMjY0LDAuMDU1OTk1MTE0IFoiIGlkPSJQYXRoIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="
-                alt="Icon" class="styles__icon-unbmdd-3 JDyIO">
+        font-family:verdana;
+        alt="Icon" class="styles__icon-unbmdd-3 JDyIO">
             <h2 class="app-name"></h2>
             <table id="stats-table" style="display:none;">
                 <tr>
@@ -125,9 +126,9 @@
         <div class="bottom" id="bubbles"></div>
     </div>
     <!--Content ends-->
-    <script src="js/helper.js"></script>
-    <script src="js/anime.min.js"></script>
-    <script src="js/balls.js"></script>
+    <script src="js/helper.js?v=ag1"></script>
+    <script src="js/anime.min.js?v=ag1"></script>
+    <script src="js/balls.js?v=ag1"></script>
     <style id="progress-modifier">
 
     </style>

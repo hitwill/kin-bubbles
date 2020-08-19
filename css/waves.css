@@ -30,6 +30,12 @@ body {
     flex-direction: column;
 }
 
+.powered-by {
+    font-style: italic;
+    margin-top: 10px;
+    font-size: small;
+}
+
 .waves {
     position: relative;
     width: 100%;
